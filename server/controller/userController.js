@@ -82,9 +82,10 @@ exports.login = async (req, res) => {
         expiresIn: new Date(Date.now() + 2 * 60 * 60 * 1000),
         httpOnly: true,
         samesite: "none",
-        domain:"https://daily-diary-a-mern-project.vercel.app",
+        domain: "daily-diary-a-mern-project.vercel.app", // Domain name without protocol
         secure: true,
       };
+      
       //send cookie
       res.cookie("token", token, options).status(200).json({
         success: true,
