@@ -84,6 +84,7 @@ exports.login = async (req, res) => {
         samesite: "none",
         domain: "daily-diary-a-mern-project.vercel.app", // Domain name without protocol
         secure: true,
+        path: '/', // Cookie accessible from all paths
       };
       
       //send cookie
