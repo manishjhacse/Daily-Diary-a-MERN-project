@@ -86,7 +86,7 @@ export default function Diary() {
               </div>
             </div>
             {!edit ? (
-              <textarea readOnly className="text-[16px] outline-none md:text-[18px] bg-black  bg-opacity-10 text-slate-400 overflow-scroll h-[80vh] px-4 py-4 rounded-md hideScrollbar shadow-sm">{`${diary?.body}`}</textarea>
+              <textarea readOnly className="text-[16px] outline-none md:text-[18px] bg-black  bg-opacity-10 text-slate-400 overflow-scroll h-[80vh] px-4 py-4 rounded-md hideScrollbar shadow-sm" value={diary?.body}></textarea>
             ) : (
               <textarea
                 onChange={(e) => setUpdatedDiary(e.target.value)}

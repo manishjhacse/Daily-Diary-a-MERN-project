@@ -26,8 +26,7 @@ export default function LoginForm({ setshowLogin }) {
     setLoading(true);
     const url = import.meta.env.VITE_BASE_URL;
     try {
-      const res = await axios.post(`${url}/login`, {
-        formData,
+      const res = await axios.post(`${url}/login`, formData, {
         withCredentials: true,
       });
       setLoading(false);
