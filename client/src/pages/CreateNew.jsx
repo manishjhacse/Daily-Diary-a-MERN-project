@@ -2,15 +2,25 @@ import React, { useState } from "react";
 import NavBar from "../components/NavBar";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeLoggedIn } from "../store/loginSlice";
 
 export default function CreateNew() {
-  const token = sessionStorage.getItem("token");
+  const navigate = useNavigate();
+  const dispatch=useDispatch();
+  const token = localStorage.getItem("token");
+    // const token = sessionStorage.getItem("token");
+    if(token === null||token===undefined){
+      dispatch(changeLoggedIn(false));
+      // navigate("/")
+      return;
+    }
+  // const token = sessionStorage.getItem("token");
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
   
   const [formData, setFormData] = useState({ date: "", body: "" });
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
   const handleChange = (e) => {
     setErrorMessage("");
     const { name, value } = e.target;

@@ -2,8 +2,22 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
+import { useDispatch } from "react-redux";
+import { changeLoggedIn } from "../store/loginSlice";
 
 export default function Diary() {
+  const navigate = useNavigate();
+  const dispatch=useDispatch();
+  const token = localStorage.getItem("token");
+    // const token = sessionStorage.getItem("token");
+    if(token === null||token===undefined){
+      dispatch(changeLoggedIn(false));
+      // navigate("/")
+      return;
+    }
+  
+  // const token = sessionStorage.getItem("token");
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
   const [deleteButton, setDeleteButton] = useState("Delete")
   const { diaryId } = useParams();
   const [loading, setLoading] = useState(false);
@@ -11,10 +25,8 @@ export default function Diary() {
   const [edit, setEdit] = useState(false);
   const [errorMessage, setErrorMessage] = useState("")
   const [updatedDiary, setUpdatedDiary] = useState("");
-  const navigate = useNavigate();
   const handleDelete = async () => {
-    const token = sessionStorage.getItem("token");
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+   
     setDeleteButton("Deleting...")
     try {
       const url = import.meta.env.VITE_BASE_URL;

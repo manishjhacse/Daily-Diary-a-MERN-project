@@ -15,10 +15,12 @@ export default function NavBar() {
       });
       sessionStorage.removeItem("token");
       dispatch(changeLoggedIn(false));
-      localStorage.removeItem("isloggedinDairy")
+      // localStorage.removeItem("isloggedinDairy")
+      localStorage.removeItem("token");
       navigate("/");
     } catch (err) {
       console.log(err);
+      navigate("/");
     }
   };
   return (

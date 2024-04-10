@@ -3,18 +3,27 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../components/NavBar";
 import { Link, useNavigate } from "react-router-dom";
 import ShowDiary from "../components/ShowDiary";
+import { useDispatch } from "react-redux";
+import { changeLoggedIn } from "../store/loginSlice";
 
 export default function Dashboard() {
+  const navigate = useNavigate();
+  const dispatch=useDispatch();
+  const token = localStorage.getItem("token");
+    // const token = sessionStorage.getItem("token");
+    if(token === null||token===undefined){
+      dispatch(changeLoggedIn(false));
+      // navigate("/")
+      return;
+    }
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false)
-  const navigate = useNavigate();
   const getUserDetails = async () => {
-    const token = sessionStorage.getItem("token");
-  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     setLoading(true)
     try {
       const url = import.meta.env.VITE_BASE_URL;
-      const res = await axios.get(`${url}/getUser`, {
+      const res = await axios.get(`${url}/getuser`, {
         withCredentials: true,
       });
       setUser(res.data.user);
@@ -23,11 +32,13 @@ export default function Dashboard() {
       console.log(err);
       console.log(err.response.data.message);
       setLoading(false)
-      // navigate("/");
+
+      navigate("/");
     }
   };
   useEffect(() => {
     getUserDetails();
+
   }, []);
 
   return (

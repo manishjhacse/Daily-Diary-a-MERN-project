@@ -30,7 +30,8 @@ export default function LoginForm({ setshowLogin }) {
         withCredentials: true,
       });
       console.log(res.data.token)
-      sessionStorage.setItem("token", res.data.token);
+      // sessionStorage.setItem("token", res.data.token);
+      localStorage.setItem("token", res.data.token);
       setLoading(false);
       dispatch(changeLoggedIn(true));
       navigate("/dashboard");

@@ -15,7 +15,8 @@ import PageNotFound from "./pages/PageNotFound";
 import ForgetPassword from "./pages/ForgetPassword";
 
 function App() {
-  const token = sessionStorage.getItem("token");
+  const token = localStorage.getItem("token");
+  // const token = sessionStorage.getItem("token");
   axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
   const loggedIn=useSelector((store)=>store.loggedIn)
   const dispatch=useDispatch()
@@ -27,6 +28,8 @@ function App() {
         });
         if(res.data.success){
             dispatch(changeLoggedIn(true))
+        }else{
+          dispatch(changeLoggedIn(false))
         }
     }catch (err) {
         console.log(err)
