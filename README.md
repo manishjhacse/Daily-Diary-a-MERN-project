@@ -24,7 +24,13 @@ To use Daily Diary, follow these steps:
 3. **Write**: Start documenting your daily experiences or past memories.
 4. **Edit/Delete**: Manage your diary entries as you see fit.
 
-## Installation
+## Screenshots
+![Screenshot 2024-04-11 002710](https://github.com/manishjhacse/Daily-Diary-a-MERN-project/assets/123859854/fd224efd-dcf7-4ac0-b288-d94c19d97469)
+
+![Screenshot 2024-04-11 002840](https://github.com/manishjhacse/Daily-Diary-a-MERN-project/assets/123859854/3b5bdfd1-dff6-4f86-a04f-b6059477fc27)
+
+![Screenshot 2024-04-11 003104](https://github.com/manishjhacse/Daily-Diary-a-MERN-project/assets/123859854/9caa2e4e-3242-461a-9f31-86135daba450)
+
 1. Clone the repo
         git clone https://github.com/manishjhacse/Daily-Diary-a-MERN-project
    
