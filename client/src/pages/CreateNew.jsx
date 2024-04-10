@@ -4,6 +4,9 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 export default function CreateNew() {
+  const token = sessionStorage.getItem("token");
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+  
   const [formData, setFormData] = useState({ date: "", body: "" });
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");

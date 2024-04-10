@@ -13,6 +13,7 @@ export default function NavBar() {
       const res = await axios.delete(`${url}/logout`, {
         withCredentials: true,
       });
+      sessionStorage.removeItem("token");
       dispatch(changeLoggedIn(false));
       navigate("/");
     } catch (err) {

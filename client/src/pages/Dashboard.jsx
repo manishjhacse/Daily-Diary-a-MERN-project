@@ -9,6 +9,8 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate();
   const getUserDetails = async () => {
+    const token = sessionStorage.getItem("token");
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     setLoading(true)
     try {
       const url = import.meta.env.VITE_BASE_URL;

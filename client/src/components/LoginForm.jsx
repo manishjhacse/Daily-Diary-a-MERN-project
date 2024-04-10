@@ -29,6 +29,8 @@ export default function LoginForm({ setshowLogin }) {
       const res = await axios.post(`${url}/login`, formData, {
         withCredentials: true,
       });
+      console.log(res.data.token)
+      sessionStorage.setItem("token", res.data.token);
       setLoading(false);
       dispatch(changeLoggedIn(true));
       navigate("/dashboard");

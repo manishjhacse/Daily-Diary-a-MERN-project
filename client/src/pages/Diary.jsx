@@ -13,6 +13,8 @@ export default function Diary() {
   const [updatedDiary, setUpdatedDiary] = useState("");
   const navigate = useNavigate();
   const handleDelete = async () => {
+    const token = sessionStorage.getItem("token");
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     setDeleteButton("Deleting...")
     try {
       const url = import.meta.env.VITE_BASE_URL;
