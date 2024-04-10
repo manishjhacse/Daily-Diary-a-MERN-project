@@ -15,6 +15,8 @@ import PageNotFound from "./pages/PageNotFound";
 import ForgetPassword from "./pages/ForgetPassword";
 
 function App() {
+  const token = sessionStorage.getItem("token");
+  axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
   const loggedIn=useSelector((store)=>store.loggedIn)
   const dispatch=useDispatch()
   const isloggedinFunction=async()=>{

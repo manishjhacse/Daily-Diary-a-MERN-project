@@ -111,7 +111,8 @@ exports.login = async (req, res) => {
 };
 exports.isloggedin = async (req, res) => {
   try {
-    const token = req.cookies.token;
+    // const token = req.cookies.token;
+    const token = req.headers.authorization.split(" ")[1];
     if (!token || token == undefined) {
       return res.json({
         success: false,

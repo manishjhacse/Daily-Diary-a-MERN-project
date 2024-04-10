@@ -15,6 +15,7 @@ export default function NavBar() {
       });
       sessionStorage.removeItem("token");
       dispatch(changeLoggedIn(false));
+      localStorage.removeItem("isloggedinDairy")
       navigate("/");
     } catch (err) {
       console.log(err);
