@@ -82,7 +82,7 @@ exports.login = async (req, res) => {
         expiresIn: new Date(Date.now() + 2 * 60 * 60 * 1000),
         // httpOnly: true,
         samesite: "None",
-        secure: true,
+        // secure: true,
       };
       //send cookie
       res.cookie("token", token, options).status(200).json({
