@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 export default function Home() {
   const [showLogin, setshowLogin] = useState(true);
   const loggedIn = useSelector((state) => state.loggedIn);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   // const isloggedin=async()=>{
   //     try{
   //         const url = import.meta.env.VITE_BASE_URL;
@@ -22,12 +22,12 @@ export default function Home() {
   //         console.log(err.response.data.message);
   //       }
   // }
-  useEffect(() => {
+  // useEffect(() => {
     // isloggedin();
-    if (loggedIn) {
-      navigate("/dashboard");
-    }
-  }, []);
+    // if (loggedIn) {
+    //   navigate("/dashboard");
+    // }
+  // }, []);
 
   return (
     <div className="w-full flex justify-center items-center h-full px-2">
