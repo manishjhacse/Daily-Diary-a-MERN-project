@@ -4,8 +4,8 @@ import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { changeLoggedIn } from "../store/loginSlice";
 
-export default function LoginForm({ setshowLogin}) {
-  const dispatch=useDispatch();
+export default function LoginForm({ setshowLogin }) {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
@@ -26,9 +26,12 @@ export default function LoginForm({ setshowLogin}) {
     setLoading(true);
     const url = import.meta.env.VITE_BASE_URL;
     try {
-      const res = await axios.post(`${url}/login`, formData);
+      const res = await axios.post(`${url}/login`, {
+        formData,
+        withCredentials: true,
+      });
       setLoading(false);
-      dispatch(changeLoggedIn(true))
+      dispatch(changeLoggedIn(true));
       navigate("/dashboard");
     } catch (err) {
       setErrorMessage(err.response.data.message);
@@ -74,7 +77,9 @@ export default function LoginForm({ setshowLogin}) {
         </button>
       </form>
       <div className="w-full flex justify-end">
-      <Link to="/forgetpassword" className="underline text-xs">forgot password</Link>
+        <Link to="/forgetpassword" className="underline text-xs">
+          forgot password
+        </Link>
       </div>
       <div className="w-full border-t border-slate-500 my-3"></div>
       <div className="w-full flex  justify-start gap-2">
