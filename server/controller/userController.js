@@ -80,9 +80,9 @@ exports.login = async (req, res) => {
       //option for cookie
       const options = {
         expiresIn: new Date(Date.now() + 2 * 60 * 60 * 1000),
-        // httpOnly: true,
+        httpOnly: true,
         samesite: "None",
-        // secure: true,
+        secure: true,
       };
       //send cookie
       res.cookie("token", token, options).status(200).json({

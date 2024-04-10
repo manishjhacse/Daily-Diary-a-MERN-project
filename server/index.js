@@ -7,6 +7,7 @@ const userRouter = require("./routes/userRouter");
 const corsOptions = {
   origin: true,
   credentials: true,
+  exposedHeaders:["Set-cookie"]
 };
 app.use(cors(corsOptions));
 app.use(cookieParser());
