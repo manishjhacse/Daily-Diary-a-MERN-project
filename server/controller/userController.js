@@ -78,21 +78,23 @@ exports.login = async (req, res) => {
       user = user.toObject();
       user.password = undefined; //hidepassword
       //option for cookie
-      const options = {
-        expiresIn: new Date(Date.now() + 2 * 60 * 60 * 1000),
-        httpOnly: true,
-        samesite: "none",
-        domain: "daily-diary-a-mern-project.vercel.app", // Domain name without protocol
-        secure: true,
-        path: '/', // Cookie accessible from all paths
-      };
-      
+      const  options = {
+        expires : new Date(Date.now()+ 3*24*60*60*1000 ), 
+        httpOnly : true,
+        sameSite :'None',
+        secure : true
+   }
+   return  res.status(200).cookie("token",token,options).json({
+    success : true,
+    token,
+    user
+})
       //send cookie
-      res.cookie("token", token, options).status(200).json({
-        success: true,
-        user,
-        message: "User Logged in Successfully",
-      });
+      // res.cookie("token", token, options).status(200).json({
+      //   success: true,
+      //   user,
+      //   message: "User Logged in Successfully",
+      // });
     } else {
       return res.status(403).json({
         success: false,
