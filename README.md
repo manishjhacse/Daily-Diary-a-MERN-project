@@ -10,6 +10,10 @@ Daily Diary is a personal journaling web application that allows users to docume
 - **User Authentication**: Secure sign-up and login functionality.
 - **Password Recovery**: Forgot password feature with OTP verification via email.
 - **Private Routes**: Ensures that diary entries are personal and secure.
+-  **Password Hashing**: Prioritizing user security, I integrated password hashing techniques to safeguard sensitive user data, leveraging industry-standard practices.
+-  **JWT Tokens**: By incorporating JSON Web Tokens (JWT), I facilitated secure authentication and authorization processes, empowering users with seamless access to their personal diaries.
+
+
 
 ## Tech Stack
 - **Frontend**: React.js for a responsive and interactive user interface.
