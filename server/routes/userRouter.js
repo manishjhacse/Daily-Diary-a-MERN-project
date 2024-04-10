@@ -4,7 +4,7 @@ const { signup,login,getUser,logOut,isloggedin,createDiary,updateDiary,getDiary,
 const {auth}=require("../auth/userAuth")
 router.post("/signup",signup);
 router.post("/login",login);
-router.get("/getUser",auth,getUser)
+router.get("/getuser",auth,getUser)
 router.delete("/logout",logOut)
 router.get("/isloggedin",isloggedin)
 router.post("/creatediary",auth,createDiary)
