@@ -29,7 +29,7 @@ To use Daily Diary, follow these steps:
         git clone https://github.com/manishjhacse/Daily-Diary-a-MERN-project
    
 3. Install NPM packages for frontend and backend
-   - cd frontend
+   - cd ../frontend
    - npm install
    - cd ../backend
    - npm install
