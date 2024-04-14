@@ -42,7 +42,7 @@ useEffect(()=>{
 },[])
   return (
     <div
-      className={`prevent-select bg-green-900 hideScrollbar overflow-x-hidden overflow-y-scroll bg-center bg-no-repeat h-screen w-screen flex`}
+      className={`prevent-select relative bg-green-900 hideScrollbar overflow-x-hidden overflow-y-scroll bg-center bg-no-repeat h-screen w-screen flex`}
     >
       <Routes>
         <Route path="/" element={<Home  />} />
@@ -73,7 +73,7 @@ useEffect(()=>{
         <Route path="forgetpassword" element={<ForgetPassword/>} />
         <Route path="*" element={<PageNotFound/>}/>
       </Routes>
-      <p  className="absolute w-full justify-center text-white bottom-0 flex items-center gap-1 left-1/2 -translate-x-1/2">Made with <GoHeartFill className="text-red-500" /> by <a className="text-green-500 font-bold" href="https://manishkumarjha.tech" target="_blank">Manish</a></p>
+      <p  className="fixed w-full justify-center text-white bottom-0 flex items-center gap-1 left-1/2 -translate-x-1/2">Made with <GoHeartFill className="text-red-500" /> by <a className="text-green-500 font-bold" href="https://manishkumarjha.tech" target="_blank">Manish</a></p>
     
     </div>
   );
